@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Movie Registration Page";
+}
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+
+@model MovieRequest
+
+<h1>Movie Registration</h1>
+<h4>Input the Movies</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="MovieConfirm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" class="form-control" />
+                <span asp-validation-for="ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Genre" class="control-label"></label>
+                <select asp-for="Genre" asp-items="Html.GetEnumSelectList<GenreType>()" class="form-control"></select>
+                <span asp-validation-for="Genre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="date" class="control-label"></label>
+                <div id="date-picker-example" class="md-form md-outline input-with-post-icon datepicker" inline="true">
+                    <input placeholder="Year Movie was Filmed" type="text" id="example" class="form-control">
+                    <i class="fas fa-calendar input-prefix"></i>
+                </div>
+                <span asp-validation-for="date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Actors" class="control-label"></label>
+                <input asp-for="Actors" class="form-control" />
+                <span asp-validation-for="Actors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Directors" class="control-label"></label>
+                <input asp-for="Directors" class="form-control" />
+                <span asp-validation-for="Directors" class="text-danger"></span>
+            </div>
+            <div>
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+</div>
+</div>
